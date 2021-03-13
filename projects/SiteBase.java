@@ -56,7 +56,7 @@ class Modules {
 		driver.findElement(By.xpath("//tbody/tr[9]/td[2]/input[1]")).sendKeys("new state");
 		driver.findElement(By.xpath("//tbody/tr[10]/td[2]/input[1]")).sendKeys("123456");
 		driver.findElement(By.xpath("//tbody/tr[11]/td[2]/input[1]")).sendKeys("9876543210");
-		driver.findElement(By.xpath("//tbody/tr[12]/td[2]/input[1]")).sendKeys("abcd@efgh.mno");
+		driver.findElement(By.xpath("//tbody/tr[12]/td[2]/input[1]")).sendKeys("abvcd@efgh.mno");
 		driver.findElement(By.xpath("//tbody/tr[13]/td[2]/input[1]")).sendKeys("asdfghjkl");
 		driver.findElement(By.xpath("//tbody/tr[14]/td[2]/input[1]")).click();
 		System.out.println("New Customer page is done");
@@ -77,10 +77,12 @@ class Modules {
 		driver.findElement(By.xpath("//tbody/tr[13]/td[2]/input[1]")).click();
 		System.out.println("Customer Edited");
 	}
-	void deleteCustomer() {
+	void deleteCustomer() throws InterruptedException {
 		driver.findElement(By.xpath("//body/div[3]/div[1]/ul[1]/li[4]/a[1]")).click();
 		driver.findElement(By.xpath("//tbody/tr[2]/td[2]/input[1]")).sendKeys(cid);
 		driver.findElement(By.xpath("//tbody/tr[7]/td[2]/input[1]")).click();
+		Thread.sleep(3000);
+		driver.switchTo().alert().accept();
 		System.out.println("Customer Deleted");
 	}
 
